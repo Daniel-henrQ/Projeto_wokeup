@@ -1,0 +1,384 @@
+.sale {
+  padding: 0px 5px;
+  margin: 0px;
+}
+
+.sale-image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.sale-image-wrapper .base-image {
+  width: 100%;
+  height: clamp(20rem, 40vw, 40rem); /* Altura adaptativa */
+  object-fit: cover;
+  display: block;
+}
+
+.sale-image-wrapper .wrapper {
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+  width: clamp(20rem, 50vw, 50rem); /* Largura adaptativa */
+  height: clamp(12rem, 25vw, 25rem); /* Altura adaptativa */
+}
+
+.image-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.image-wrapper img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  transition: all 300ms ease-in-out;
+}
+
+.img-base {
+  z-index: 1;
+  opacity: 1;
+}
+
+.img-hover {
+  z-index: 2;
+  opacity: 0;
+  left: -70px;
+}
+
+/* Hover Effect */
+.wrapper:hover .img-base {
+  transform: scale(1.2);
+  opacity: 0;
+}
+
+.wrapper:hover .img-hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.img-base {
+  z-index: 1;
+  opacity: 1;
+}
+
+.img-hover {
+  z-index: 2;
+  opacity: 0;
+  left: -70px;
+  /* move um pouco para a esquerda */
+}
+
+
+.wrapper:hover .img-base {
+  transform: scale(1.2);
+  opacity: 0;
+}
+
+.wrapper:hover .img-hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+
+.categoria-esteira {
+  width: 100%;
+  background: white;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+  position: relative;
+}
+
+.categorias-wrapper {
+  display: flex;
+  width: max-content;
+  animation: esteira-infinita 20s linear infinite;
+}
+
+@keyframes esteira-infinita {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.categorias {
+  display: flex;
+  gap: 20px;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.categorias a {
+  text-decoration: none;
+  color: #070a06;
+  font-weight: bold;
+  font-family: 'Anta', sans-serif;
+  font-size: 1rem;
+  padding: 5px 8px;
+  flex-shrink: 0;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 12px;
+  padding: 20px 10px;
+  max-width: 98vw;
+  margin: 0 auto;
+  background-color: #070a06;
+}
+
+.card {
+  position: relative;
+  background-color: #eee;
+  border-radius: 8px;
+  flex: 1 0 22%;
+  max-width: 22vw;
+  height: 36rem;
+  overflow: hidden;
+  margin: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer; /* para indicar que pode clicar */
+}
+
+.card img {
+  width: 100%;
+  height: 70%;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  background: rgba(7, 10, 6, 0.85);
+  color: #fff;
+  text-align: center;
+  font-family: 'Anta', sans-serif;
+  font-size: 0.9rem;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  user-select: none;
+  border-radius: 0 0 8px 8px;
+}
+
+.card:hover .card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mostra overlay também quando ativado via classe */
+.card-overlay.active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.product-name {
+  margin: 0;
+  font-weight: bold;
+}
+
+.size-options {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.size-options button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #00ff12;
+  color: #00ff12;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.size-options button:hover {
+  background: #00ff12;
+  color: #000;
+}
+
+/* MENU MOBILE */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: #00ff12;
+  cursor: pointer;
+  background: none;
+  border: none;
+  margin-left: 16px;
+}
+
+/* RESPONSIVIDADE */
+
+/* Tablets e laptops médios */
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 0 30%;
+    max-width: 30vw;
+    height: 28rem;
+  }
+
+  .card-overlay {
+    font-size: 0.85rem;
+  }
+
+  .categorias {
+    gap: 16px;
+  }
+  
+  }
+
+
+/* Tablets e mobiles maiores */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #070a06;
+  }
+
+  .menu-open .nav-links {
+    display: flex;
+  }
+
+  .cart-container {
+    margin-left: auto;
+  }
+
+  .card {
+    flex: 1 0 45%;
+    max-width: 45vw;
+    height: 22rem;
+  }
+
+  .card-overlay {
+    position: relative;
+    opacity: 1 !important;
+    pointer-events: auto;
+    background: #070a06;
+    padding: 10px;
+    font-size: 0.85rem;
+    gap: 5px;
+  }
+
+  .categorias {
+    overflow-x: auto;
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .categorias a {
+    font-size: 0.95rem;
+    padding: 6px;
+  }
+
+  /* Ajustes sale-image-wrapper */
+  .sale-image-wrapper .wrapper {
+    right: 1rem;
+    width: 80%;
+    height: auto;
+}
+
+.img-hover {
+    left: -30px; /* Ajuste menor para telas pequenas */
+}
+  
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+
+    .card {
+      flex: 1 0 90%;
+      max-width: 90vw;
+      height: 18rem;
+      position: relative; /* necessário para o overlay absoluto */
+    }
+  
+    .card img {
+      height: 65%;
+    }
+  
+    /* Overlay ativado via classe no mobile */
+    .card:hover .card-overlay {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+  
+    .card-overlay {
+      position: absolute;    /* para fixar na base do card */
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;          /* altura adaptável */
+      min-height: 5rem;      /* altura mínima para o conteúdo */
+      max-height: 40%;       /* para não ocupar muita área */
+      background: rgba(7, 10, 6, 0.95);
+      color: #fff;
+      font-size: 0.85rem;
+      padding: 12px 10px;
+      gap: 6px;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+      line-height: 1.3;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      overflow-y: auto; /* scroll se conteúdo ultrapassar */
+    }
+  
+    .card-overlay.active {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+  
+    .size-options button {
+      padding: 6px 8px;
+      font-size: 0.8rem;
+    }
+  
+    .categorias a {
+      font-size: 0.8rem;
+    }
+
+    .img-hover {
+      left: -10px;
+  }
+
+  }
+  
+
+
+
+
+  
+

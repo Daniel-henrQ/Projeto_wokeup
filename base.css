@@ -1,0 +1,289 @@
+/* RESET / BASE */
+body {
+    font-family: "Anta", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #070a06;
+    color: #e0e0e0;
+}
+
+nav {
+    background-color: #070a06;
+    padding: 0.5em 1em;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+nav img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Links da navegação */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    /* linha */
+}
+
+.nav-links a:first-child {
+    border-left: none;
+    /* remove linha antes do primeiro link */
+}
+
+
+
+.nav-links a:hover {
+    color: #00ff12;
+}
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown content escondido por padrão */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #111;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+/* Links dentro do dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  border-bottom: 1px solid #333;
+}
+
+/* Último link sem borda */
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+/* Hover nos itens */
+.dropdown-content a:hover {
+  background-color: #00ff12;
+  color: #000;
+}
+
+/* Mostrar dropdown ao passar o mouse */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* Carrinho */
+.cart-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.cart-icon {
+  font-size: 24px;
+  color: white;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+/* Dropdown do carrinho */
+.cart-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #111;
+  color: white;
+  min-width: 250px;
+  padding: 15px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+  z-index: 1;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.cart-item {
+  border-bottom: 1px solid #444;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+}
+.cart-img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1); /* deixa branco em fundo escuro */
+}
+
+.checkout-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #00ff12;
+  color: black;
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Mostrar dropdown ao passar o mouse */
+.cart-container:hover .cart-dropdown {
+  display: block;
+}
+
+/* Resto da página */
+main {
+    padding: 0;
+}
+
+.footer-edgy {
+    background: #0a0d0a;
+    color: #e0e0e0;
+    padding: 20px 10px;
+    text-align: center;
+    font-family: "Anta", sans-serif;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+  
+  .footer-logo-img {
+    width: 10rem;
+    margin-bottom: 20px;
+    filter: brightness(1.1);
+  }
+  
+  .footer-text {
+    font-size: 15px;
+    text-shadow: 0 0 5px #fff;
+    margin-bottom: 10px;
+  }
+  
+  .footer-links {
+    margin: 10px 0;
+  }
+  
+  .footer-links a {
+    margin: 0 10px;
+    color: #00ff12;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: #fff;
+  }
+  
+  .footer-autor {
+    font-size: 13px;
+    color: #888;
+    margin-top: 20px;
+  }
+  
+  .footer-copy {
+    font-size: 11px;
+    color: #555;
+    margin-top: 5px;
+  }
+  .sticker {
+    width: 60px;
+    height: auto;
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+  }
+  
+  .rotate1 {
+    transform: rotate(-15deg);
+  }
+  
+  .rotate2 {
+    transform: rotate(10deg);
+  }
+  
+  .rotate3 {
+    transform: rotate(-5deg);
+  }
+  
+  .rotate5 {
+    transform: rotate(8deg);
+
+  }
+  /* BOTÃO HAMBURGER (MOBILE) */
+  .menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: #00ff12;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-left: 16px; /* espaçamento entre logo e botão */
+  }
+  
+
+/* Quando ativado */
+.menu-open .nav-links {
+  display: flex;
+  flex-direction: column;
+  background-color: #070a06;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 80%;
+  max-width: 250px;
+  padding: 10px;
+  border: 1px solid #00ff12;
+  z-index: 999;
+  gap: 10px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none; /* escondido por padrão */
+    flex-direction: column;
+    width: 100%;
+    background-color: #070a06;
+  }
+
+  .cart-container {
+    margin-left: auto;
+  }
+}
